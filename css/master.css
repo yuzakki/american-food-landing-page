@@ -1,5 +1,5 @@
 /* Start In  27/09/2021 */
-/* Finish In 30/09/2021 */
+/* Finish In 01/10/2021 */
 /* ========== Start Variables ========== */
 :root {
     /* === COLORS === */
@@ -203,6 +203,7 @@ body {
     list-style: none;
     visibility: hidden;
     opacity: 0;
+    z-index: 10;
 }
 .landing .container .nav .right-content .links .toggle-menu ul::before {
     content: "";
@@ -410,7 +411,7 @@ body {
 }
 @media (max-width: 991px) {
     .menu-food .container .main-food {
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 20px;
     }
 }
@@ -436,6 +437,7 @@ body {
     position: absolute;
     color: white;
     padding: 25px;
+    z-index: 999999999999;
 }
 .menu-food .container .primary-food .title h4,
 .menu-food .container .secondary-food .title h4 {
@@ -500,6 +502,7 @@ body {
 .our-story {
     width: 100%;
     overflow: hidden;
+    padding-top: var(--bigger-padding);
     padding-bottom: var(--bigger-padding);
 }
 /* === Title === */
@@ -799,15 +802,15 @@ body {
 
 /* ========== Start Footer ========== */
 .footer {   
+    background-image: url(/image/footer-image.png);
+    background-size: cover;
     padding-top: 30px;
-    padding-bottom: 30px;
     height: 500px;
 }
 .footer .container {
-    background-image: url(/image/footer-image.png);
-    background-size: cover;
     height: 100%;
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
