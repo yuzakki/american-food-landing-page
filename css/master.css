@@ -1,0 +1,930 @@
+/* Start In  27/09/2021 */
+/* Finish In 30/09/2021 */
+/* ========== Start Variables ========== */
+:root {
+    /* === COLORS === */
+    --brown-color: #3d2514;
+    --yellow-color: #ffc045;
+    --gray-color: #bebebe;
+    --red-color: #f83030de;
+    --white-color: #ffffffc7;
+    --footer-color: #212a34;
+    /* === MAIN PADDING === */
+    --bigger-padding: 70px;
+    --main-padding: 20px;
+    /* === FONTS STYLE === */
+    --Alfa-style-family: 'Alfa Slab One', cursive;
+    --Bebas-style-font: 'Bebas Neue', cursive;
+    --Montserrat-style-font: 'Montserrat', sans-serif;
+    /* === SHADOW === */
+    --main-text-shadow: 5px 5px 6px white;
+    --main-border-radius: 5px
+}
+/* ========== End Variables ========== */
+
+/* ========== Start Global Rules ========== */
+::-webkit-scrollbar {
+    width: 14px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 117, 255);
+    border-radius: 2px;
+}
+::selection {
+    background-color: #31dcce;
+    color: #333;
+}
+::placeholder {
+    color: #00000091;
+    font-size: 17px;
+    font-weight: normal;
+    font-family: var(--Bebas-style-font);
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+/* === Small === */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+        margin: auto;
+    }
+}
+/* === Medium === */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+        margin: auto;
+    }
+}
+/* === Large === */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+        margin: auto;
+    }
+} 
+/* ========== End Global Rules ========== */
+
+/* ========== Start Landing ========== */
+.landing {
+    width: 100%;
+    height: 100vh;
+    background-image: url(/image/Rectangle.png);
+    background-size: cover;
+}
+.landing .container {
+    padding-top: var(--main-padding);
+    padding-bottom: var(--main-padding);
+    height: 100%;
+    overflow: hidden;
+}
+/* === Start Nav Block === */
+.landing .container .nav {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+/* == Logo == */
+.landing .container .nav .logo {
+    height: fit-content;
+    cursor: pointer;
+}
+@media (max-width: 991px) {
+    .landing .container .nav .logo {
+        width: 130px;
+    }
+}
+.landing .container .nav .logo img {
+    max-width: 100%;
+}
+/* == Right-Content == */
+.landing .container .nav .right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* = Description = */
+.landing .container .nav .right-content .description {
+    margin-bottom: 20px;
+    position: relative;
+}
+@media (max-width: 991px) {
+    .landing .container .nav .right-content .description {
+        display: none;
+    }
+}
+.landing .container .nav .right-content .description img {
+    width: 30px;
+    position: absolute;
+    margin-left: 25px;
+    bottom: 0;
+}
+.landing .container .nav .right-content .description h3 {
+    font-size: 13pt;
+    font-family: var(--Montserrat-style-font);
+    font-weight: bold;
+    text-align: right;
+}
+/* = Links = */
+.landing .container .nav .right-content .links {
+    position: relative;
+}
+.landing .container .nav .right-content .links ul.desk-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    margin-top: 10px;
+}
+@media (max-width: 991px) {
+    .landing .container .nav .right-content .links ul.desk-links{
+        display: none;
+    }
+}
+.landing .container .nav .right-content .links ul.desk-links li a {
+    text-decoration: none;
+    font-family: var(--Bebas-style-font);
+    font-size: 25px;
+    color: var(--brown-color);
+    position: relative;
+    transition: 1s;
+}
+.landing .container .nav .right-content .links ul.desk-links li a::before {
+    content: "";
+    background-color: var(--brown-color);
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -10px;
+    transition: .5s;
+}
+.landing .container .nav .right-content .links ul.desk-links li a:hover::before {
+    width: 100%;
+    right: 0;
+}
+/* Toggle-Menu Icon */
+.landing .container .nav .right-content .links .toggle-menu {
+    position: relative;
+    transition: 1s;
+}
+.landing .container .nav .right-content .links .toggle-menu i {
+    display: none;
+}
+.landing .container .nav .right-content .links .toggle-menu ul {
+    text-align: center;
+    background: #f6f6f6;
+    min-width: 200px;
+    border-radius: 5px;
+    margin-top: 45px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    transition: 0.7s;
+    list-style: none;
+    visibility: hidden;
+    opacity: 0;
+}
+.landing .container .nav .right-content .links .toggle-menu ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+.landing .container .nav .right-content .links .toggle-menu ul li a {
+    color: black;
+    font-family: var(--Montserrat-style-font);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: 0.7s;
+}
+.landing .container .nav .right-content .links .toggle-menu ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+.landing .container .nav .right-content .links .toggle-menu ul li a:hover {
+    padding-left: 25px;
+}
+.landing .container .nav .right-content .links .toggle-menu:hover ul {
+    visibility: visible;
+    opacity: 100%;
+    top: 0;
+}
+@media (max-width: 991px) {
+    .landing .container .nav .right-content .links .toggle-menu i {
+        display: block;
+        font-size: 30px;
+        color: var(--brown-color);
+        cursor: pointer;
+    }
+}
+/* === End Of Nav Block === */
+/* === Start Feature-Landing === */
+.landing .container .feature-landing {
+    display: flex;
+    justify-content: space-between;
+}
+
+.landing .container .feature-landing .text-block,
+.landing .container .feature-landing .img-block {
+    padding-top: 20px;
+    width: 50%;
+    height: 517px;
+}
+@media (max-width: 991px) {
+.landing .container .feature-landing {
+    flex-direction: column-reverse;
+}
+.landing .container .feature-landing .text-block,
+.landing .container .feature-landing .img-block {
+    width: 100%;
+}
+}
+/* == Text Block == */
+.landing .container .feature-landing .text-block {
+    padding: 70px 0 0;
+}
+@media (max-width: 991px) {
+    .landing .container .feature-landing .text-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+    }
+}
+.landing .container .feature-landing .text-block H3 {
+    font-family: var(--Bebas-style-font );
+    font-size: 19pt;
+    border-width: 2px;
+    border-color: var(--brown-color);
+    border-style: dashed;
+    padding: 10px;
+    width: fit-content;
+}
+.landing .container .feature-landing .text-block H1:first-of-type {
+    font-size: 7em;
+    margin: 12px 0 0;
+    font-family: var(--Alfa-style-family);
+    /* font-family: var(--Montserrat-style-font); */
+    font-weight: bold;
+    text-shadow: var(--main-text-shadow);
+    color: var(--brown-color);
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+.landing .container .feature-landing .text-block H1:last-of-type {
+    font-size: 3em;
+    margin: 10px 0;
+    font-family: var(--Alfa-style-family);
+    /* font-family: var(--Montserrat-style-font); */
+    font-weight: bold;
+    text-shadow: var(--main-text-shadow);
+    color: var(--brown-color);
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+@media (max-width: 991px) {
+    .landing .container .feature-landing .text-block H1:first-of-type {
+        font-size: 4em;
+    }
+    .landing .container .feature-landing .text-block H3 {
+        text-align: center;
+    }
+}
+/* == Img Block == */
+.landing .container .feature-landing .img-block {
+    position: relative;
+    overflow: hidden;
+}
+.landing .container .feature-landing .img-block img {
+    position: absolute;
+    max-width: calc(100% + 20vh);
+    left: -20vh;
+    top: -10vh;
+}
+@media (max-width: 991px) {
+    .landing .container .feature-landing .img-block {
+        display: none;
+    }
+}
+.landing .container .feature-landing .img-block .price {
+    width: 150px;
+    height: 150px;
+    background: #bf2222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+@media (max-width: 1200px) {
+    .landing .container .feature-landing .img-block .price {
+        bottom: 110px;
+        width: 120px;
+        height: 120px;
+    }
+}
+.landing .container .feature-landing .img-block .price .circle-dashed{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+}
+.landing .container .feature-landing .img-block .price span {
+    font-size: 50px;
+}
+.landing .container .feature-landing .img-block .price h3:last-of-type{
+    font-size: 25px;
+    font-family: var(--Montserrat-style-font);
+    letter-spacing: 2px;
+}
+@media (max-width: 1200px) {
+    .landing .container .feature-landing .img-block .price span {
+        font-size: 30px;
+    }
+    .landing .container .feature-landing .img-block .price h3:last-of-type {
+        font-size: 18px;
+    }
+}
+@media (max-width: 991px) {
+    .landing .container .feature-landing .img-block .price {
+        display: none;
+    }
+}
+/* === End Feature-Landing === */
+/* ========== End Landing ========== */
+
+/* ========== Start Menu-Food ========== */
+.menu-food {
+    width: 100%;
+    padding: var(--bigger-padding) 0 50px;
+    overflow: hidden;
+}
+.menu-food .container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    gap: 50px;
+}
+/* === Main-Food === */
+.menu-food .container .main-food {
+    display: flex;
+    gap: 50px
+}
+@media (max-width: 991px) {
+    .menu-food .container .main-food {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}
+.menu-food .container .primary-food,
+.menu-food .container .secondary-food {
+    width: 50%;
+    position: relative;
+    font-family: var(--Montserrat-style-font);
+}
+@media (max-width: 991px) {
+    .menu-food .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .menu-food .container .primary-food,
+    .menu-food .container .secondary-food {
+        width: 100%;
+    }
+}
+/* === Primary & Secondary Title Food === */
+.menu-food .container .primary-food .title,
+.menu-food .container .secondary-food .title {
+    position: absolute;
+    color: white;
+    padding: 25px;
+}
+.menu-food .container .primary-food .title h4,
+.menu-food .container .secondary-food .title h4 {
+    font-size: 17px;
+    font-weight: 700;
+}
+.menu-food .container .primary-food .title h1,
+.menu-food .container .secondary-food .title h1 {
+    margin: 5px 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+@media (max-width: 991px) {
+    .menu-food .container .primary-food .title,
+    .menu-food .container .secondary-food .title {
+        padding: 15px;
+    }
+    .menu-food .container .primary-food .title h4,
+    .menu-food .container .secondary-food .title h4 {
+    font-size: 14px;
+    }
+    .menu-food .container .primary-food .title h1,
+    .menu-food .container .secondary-food .title h1 {
+        font-size: 20px;
+    }
+}
+.menu-food .container .primary-food img,
+.menu-food .container .secondary-food .burger img {
+    max-width: 100%;
+    width: 100%;
+}
+/* === Secondary Food === */
+.menu-food .container .secondary-food {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px
+}
+/* === Button === */
+.menu-food .container .btn {
+    text-align: center;
+}
+.menu-food .container .btn button {
+    text-decoration: none;
+    font-family: var(--Bebas-style-font);
+    font-size: 20px;
+    background: var(--yellow-color);
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 50px;
+}
+.menu-food .container .btn button a {
+    text-decoration: none;
+    color: var(--brown-color);
+}
+/* ========== End Menu-Food ========== */
+
+/* ========== Start Our-Story ========== */
+.our-story {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: var(--bigger-padding);
+}
+/* === Title === */
+.our-story .container .title {
+    text-align: center;
+}
+.our-story .container .title h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    color: var(--brown-color);
+    font-family: var(--Alfa-style-family);
+    letter-spacing: 5px;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .our-story .container .title h1 {
+        font-size: 25px;
+    }
+}
+.our-story .container .title p {
+    width: 900px;
+    margin: 25px auto 0;
+    max-width: 100%;
+    color: var(--brown-color);
+}
+/* === Food Story === */
+.our-story .container .food-story {
+    display: grid;
+    gap: 70px;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    margin-top: 70px;
+}
+/* == Img Block  == */
+.our-story .container .food-story .box .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+}
+.our-story .container .food-story .box .img img {
+    max-width: 100%;
+}
+/* == Box Title == */
+.our-story .container .food-story .box .box-title {
+    text-align: center;
+}
+.our-story .container .food-story .box .box-title h2 {
+    font-family: var(--Bebas-style-font);
+    color: var(--brown-color);
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.our-story .container .food-story .box .box-title p {
+    color: var(--brown-color);
+    font-size: 15px;
+    margin: 10px 0px 0;
+    font-weight: 500;
+    font-family: var(--Montserrat-style-font);
+}
+/* == Button Block == */
+.our-story .container .food-story .box .btn button {
+    margin: 40px auto 0;
+    display: block;
+    border-radius: var(--main-border-radius);
+    flex: 1;
+    background-color: var(--red-color);
+    cursor: pointer;
+    transition: .8s;
+}
+.our-story .container .food-story .box .btn button:hover {
+    /* background-color: #fb0909e8; */
+    background: var(--yellow-color);
+}
+.our-story .container .food-story .box .btn button a {
+    text-decoration: none;
+    padding: 15px 40px;
+    color: var(--brown-color);
+    font-family: var(--Alfa-style-family);
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+}
+/* ========== End Our-Story ========== */
+
+/* ========== Start Desc-Food ========== */
+.desc-food {
+    padding-top: var(--bigger-padding);
+    padding-bottom: var(--bigger-padding);
+}
+.desc-food .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 9px 9px 20px 6px #00000021;
+    padding: 20px;
+    border-radius: 3px;
+}
+@media (max-width: 991px) {
+    .desc-food .container {
+        flex-direction: column-reverse;
+    }
+}
+/* === Text Block === */
+.desc-food .container .text {
+    width: 50%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+}
+.desc-food .container .text H4 {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: var(--Bebas-style-font);
+    letter-spacing: 2px;
+    color: var(--brown-color);
+}
+.desc-food .container .text h1 {
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    font-family: var(--Alfa-style-family);
+    letter-spacing: 3px;
+    font-size: 35px;
+    color: var(--brown-color);
+}
+@media (max-width: 767px) {
+    .desc-food .container .text H1 {
+        font-size: 25px;
+    }
+}
+.desc-food .container .text p {
+    color: #00000075;
+    font-family: var(--Montserrat-style-font);
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+.desc-food .container .text .circles{
+    bottom: 40px;
+    position: absolute;
+}
+.desc-food .container .circles span{
+    width: 15px;
+    height: 15px;
+    background-color: var(--gray-color);
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+.desc-food .container .circles span.active{
+    background-color: var(--yellow-color);
+}
+/* === Image Block === */
+.desc-food .container .image {
+    width: 50%;
+}
+.desc-food .container .image img{
+    max-width: 100%;
+    border-radius: 3px;
+}
+@media (max-width: 991px) {
+    .desc-food .container .image,
+    .desc-food .container .image img,
+    .desc-food .container .text {
+        width: 100%;
+    }
+    .desc-food .container .text {
+        padding-top: 10px;
+    }
+}
+/* ========== End Desc-Food ========== */
+
+/* ========== Start Contact ========== */
+.contact {
+    padding-top: var(--bigger-padding);
+    padding-bottom: var(--bigger-padding);
+    position: relative;
+    overflow: hidden;
+}
+/* === Contact Burger === */
+.contact .contact-burger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.contact .contact-burger img:first-child {
+    top: 0;
+    left: 0;
+    position: absolute;
+    max-width: 100%;
+}
+.contact .contact-burger img:last-child {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    width: 200px;
+}
+@media (max-width: 991px) {
+    .contact .contact-burger {
+        display: none;
+    }
+}
+/* === Title Block === */
+.contact .container .title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.contact .container .title h2 {
+    font-family: var(--Bebas-style-font);
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.contact .container .title h1 {
+    font-family: var(--Alfa-style-family);
+    margin: 20px 0 0;
+    text-transform: uppercase;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+@media (max-width: 767px) {
+    .contact .container .title h1{
+        font-size: 25px;
+    }
+}
+/* === Content Block === */
+.contact .container .content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* == Img == */
+.contact .container .content .img img {
+    max-width: 100%;
+}
+@media (max-width: 991px) {
+    .contact .container .content .img {
+        display: none;
+    }
+}
+/* == User == */
+.contact .container .content .user {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+/* User Inputs */
+.contact .container .content .user input {
+    padding: 20px;
+    border: 2px solid var(--gray-color);
+    width: 300px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-family: var(--Montserrat-style-font);
+    font-weight: 700;
+    color: var(--brown-color);
+}
+
+/* == All Blocks == */
+.contact .container .content .user .above,
+.contact .container .content .user .middle,
+.contact .container .content .user .lower {
+    display: flex;
+    gap: 30px;
+}
+@media (max-width: 767px) {
+    .contact .container .content .user .above,
+    .contact .container .content .user .middle,
+    .contact .container .content .user .lower {
+        flex-direction: column;
+    }
+}
+/* = Lower-Block = */
+.contact .container .content .user .lower-block button {
+    flex: 1;
+    background: var(--red-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .8s;
+}
+.contact .container .content .user .lower-block button:hover {
+    background-color: var(--yellow-color);
+}
+.contact .container .content .user .lower-block button a {
+    color: white;
+    text-decoration: none;
+    font-family: var(--Alfa-style-family);
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: 2px;
+    display: block;
+    padding: 20px;
+}
+/* ========== End Contact ========== */
+
+/* ========== Start Footer ========== */
+.footer {   
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 500px;
+}
+.footer .container {
+    background-image: url(/image/footer-image.png);
+    background-size: cover;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+/* === Above-Block === */
+.footer .container .above-block {
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+.footer .container .above-block .desc,
+.footer .container .above-block .info {
+    width: 50%;
+}
+@media (max-width: 767px) {
+    .footer .container .above-block {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .footer .container .above-block .desc,
+    .footer .container .above-block .info {
+        width: 100%;
+    }
+}
+/* == Description == */
+.footer .container .above-block .desc {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+/* = Logo = */
+.footer .container .above-block .desc .logo img {
+    max-width: 100%;
+}
+/* = Text = */
+.footer .container .above-block .desc .text p {
+    color: var(--white-color);
+    font-family: var(--Montserrat-style-font);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    width: 485px;
+    max-width: 100%;
+    padding-top: 30px;
+}
+@media (max-width: 767px) {
+    .footer .container .above-block .desc {
+        text-align: center;
+    }
+    .footer .container .above-block .desc .text {
+        display: none;
+    }
+}
+/* == Info == */
+.footer .container .above-block .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 100px;
+}
+@media (max-width: 767px) {
+    .footer .container .above-block .info {
+        padding: 30px 0 0;
+    }
+}
+/* = Location & Email = */
+.footer .container .above-block .info .location,
+.footer .container .above-block .info .email {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+.footer .container .above-block .info .location h3,
+.footer .container .above-block .info .email a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: var(--Bebas-style-font);
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.footer .container .above-block .info .location h3 {
+    color: white;
+}
+.footer .container .above-block .info a {
+    color: #10cab7;
+}
+.footer .container .above-block .info .location img,
+.footer .container .above-block .info .email img {
+    max-width: 100%;
+}
+/* === Lower-Block === */
+.footer .container .lower-block {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .footer .container .lower-block {
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+}
+.footer .container .lower-block .title h3 {
+    font-family: var(--Bebas-style-font);
+    text-transform: uppercase;
+    color: var(--white-color);
+    font-weight: normal;
+}
+.footer .container .lower-block .social img {
+    margin-left: 5px;
+    width: 30px;
+    cursor: pointer;
+    transition: .5s;
+}
+.footer .container .lower-block .social img:hover {
+    transform: translateY(-5px);
+}
+/* ========== End The Fucking Footer ========== */
